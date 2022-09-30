@@ -1,6 +1,5 @@
 plotly==5.6.0
-numpy @ file:///C:/ci/numpy_and_numpy_base_1626271900803/work
-pandas @ file:///C:/ci/pandas_1635506685681/work
-regex @ file:///C:/ci/regex_1628063427816/work
+numpy
+pandas
 streamlit==1.12.0
 yfinance==0.1.74

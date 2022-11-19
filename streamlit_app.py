@@ -1,8 +1,16 @@
-import pandas as pd
-import numpy as np
+
 import streamlit as st
 import yfinance as yf
 import plotly.graph_objs as go
+from requests_html import HTMLSession
+def news_url(url):
+    session = HTMLSession()
+    web_page = url
+    respone = session.get(web_page)
+    page_html = respone.html
+    video_frame= page_html.find('a.link.caas-button')
+    video_attrs = video_frame[-1].attrs
+    return video_attrs["href"]
 
 st.set_page_config(page_title="Stock Moniter- Aman Kumar Jaiswar",layout="wide")
 input_data= st.text_input(label="Enter a stock symbol",value="TSLA")
@@ -312,5 +320,6 @@ else:
                 except KeyError:
                     continue
             with ncol2:
+                latest_news=news_url(all_news[i]["link"])
                 st.header(all_news[i]["title"])
-                st.subheader("click here to [read more]({})".format(all_news[i]["link"]))
+                st.subheader("click here to [read more]({})".format(latest_news))

@@ -322,4 +322,7 @@ else:
             with ncol2:
                 latest_news=news_url(all_news[i]["link"])
                 st.header(all_news[i]["title"])
-                st.subheader("click here to [read more]({})".format(latest_news))
+                if latest_news.startswith("mailto"):
+                    st.subheader("click here to [read more]({})".format(all_news[i]["link"]))
+                else:
+                    st.subheader("click here to [read more]({})".format(latest_news))

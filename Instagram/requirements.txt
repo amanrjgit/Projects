@@ -1,5 +1,5 @@
 pickle
-streamlit
+streamlit==1.12.0
 base64
 instagrapi==1.17.0
 warnings

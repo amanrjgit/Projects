@@ -7,10 +7,11 @@ import streamlit as st
 import base64
 import plotly.graph_objects as go
 from instagrapi import Client
+import joblib
 import warnings
 warnings.filterwarnings("ignore")
 
-model = pickle.load(open('rf.pkl', 'rb'))
+model = joblib.load(open("rf.pkl","rb"))
 
 #functions
 def length(string):

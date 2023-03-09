@@ -10,7 +10,7 @@ from instagrapi import Client
 import warnings
 warnings.filterwarnings("ignore")
 
-model = pickle.load(open('C:/Users/hp/PycharmProjects/pythonProject/instagram/rf.pkl', 'rb'))
+model = pickle.load(open('rf.pkl', 'rb'))
 
 #functions
 def length(string):
@@ -97,7 +97,7 @@ st.set_page_config(page_title="InstaBot Identifier- Aman Kumar Jaiswar",layout="
 
 # image
 
-main_bg = "C:/Users/hp/PycharmProjects/pythonProject/instagram/bg.jpg"
+main_bg = "bg.jpg"
 main_bg_ext = "jpg"
 
 with open(main_bg, "rb") as image_file:
@@ -126,7 +126,7 @@ button[title="View fullscreen"]{
 col1, col2 = st.columns([1,1],gap="small")
 with col1:
     st.title("InstaBot Identifier")
-    st.image("C:\\Users\\hp\\PycharmProjects\\pythonProject\\instagram\\insta.png")
+    st.image("insta.png")
     st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 with col2:

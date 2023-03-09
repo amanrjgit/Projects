@@ -1,0 +1,6 @@
+pickle
+streamlit
+base64
+instagrapi==1.17.0
+warnings
+scikit-learn==1.2.2

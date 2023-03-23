@@ -1,13 +1,11 @@
-import numpy as np
 import cv2
 import pickle
+import pandas as pd
 
-face_cascade = cv2.CascadeClassifier('casscade/haarcascade_frontalface_alt2.xml')
+face = cv2.CascadeClassifier('casscade/haarcascade_frontalface_default.xml')
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-#recognizer.read("face-trainer.yml")
-#recognizer.read("face-trainer2.yml")
-recognizer.read("face-trainer-default.yml")
+recognizer.read("face-trainer.yml")
 
 labels = {}
 with open("face-labels.pickle", 'rb') as f:
@@ -19,7 +17,7 @@ while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
     gray  = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
+    faces = face.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
     for (x, y, w, h) in faces:
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = frame[y:y+h, x:x+w]
@@ -42,5 +40,7 @@ while(True):
     if cv2.waitKey(20) & 0xFF == ord('q'):
         break
 
+# When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+

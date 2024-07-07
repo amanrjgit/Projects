@@ -5,3 +5,4 @@ streamlit==1.12.0
 yfinance
 requests_html
 bs4
+lxml_html_clean
